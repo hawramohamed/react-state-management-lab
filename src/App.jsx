@@ -1,3 +1,8 @@
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import { resumeAndPrerenderToNodeStream } from 'react-dom/static'
 
 const App = () => {
 
@@ -114,7 +119,7 @@ const App = () => {
   }
 
   const totalStrength = team.reduce((sum,fighter) => sum + fighter.strength, 0);
-  const totalAgility = team.reduce((sum, fighter) => sum + fighter,agility, 0);
+  const totalAgility = team.reduce((sum, fighter) => sum + fighter.agility, 0);
 
 
   return (
@@ -125,7 +130,7 @@ const App = () => {
       <ul>
         {zombieFighters.map((fighter) => (
           <div key={fighter.id}>
-            <img src={fighter.img} alt={fighter.alt} />
+            <img src={fighter.img} alt={fighter.name} />
             <h4>{fighter.name}</h4>
             <p>Strength: {fighter.strength}</p>
             <p>Agility: {fighter.agility}</p>
